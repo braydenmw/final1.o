@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BWGA Nexus AI</title>
+    <meta name="theme-color" content="#03045E">
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'nexus-blue': '#00B4D8',
+              'nexus-dark': '#03045E',
+              'nexus-bg-start': '#020024',
+              'nexus-bg-end': '#03045E',
+              'nexus-surface': 'rgba(12, 16, 92, 0.3)',
+              'nexus-border': 'rgba(0, 180, 216, 0.2)',
+            },
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+            },
+            typography: (theme) => ({
+              invert: {
+                css: {
+                  '--tw-prose-p': theme('colors.gray.400'),
+                  '--tw-prose-strong': theme('colors.white'),
+                },
+              },
+            }),
+          },
+        },
+      };
+    </script>
+    <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
+    "@google/genai": "https://esm.sh/@google/genai@0.8.0",
+    "jspdf": "https://esm.sh/jspdf@2.5.1",
+    "html2canvas": "https://esm.sh/html2canvas@1.4.1",
+    "marked": "https://esm.sh/marked@12.0.2",
+    "recharts": "https://esm.sh/recharts@2.12.7",
+    "react-syntax-highlighter": "https://esm.sh/react-syntax-highlighter@15.5.0",
+    "react-syntax-highlighter/": "https://esm.sh/react-syntax-highlighter@15.5.0/",
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+    "react/": "https://esm.sh/react@18.2.0/"
+  }
+}
+</script>
+    <style>
+        .blueprint-content {
+            background-color: #03045E; /* nexus-bg-end */
+            color: #d1d5db; /* text-gray-300 */
+            font-family: 'Inter', sans-serif;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .blueprint-content h1, .blueprint-content h2, .blueprint-content h3, .blueprint-content h4, .blueprint-content h5 {
+            color: white;
+            font-weight: 700;
+        }
+        .blueprint-content h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0, 180, 216, 0.3); }
+        .blueprint-content h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #00B4D8; }
+        .blueprint-content h4 { font-size: 1.1rem; margin-top: 1.25rem; margin-bottom: 0.5rem; color: #90e0ef; }
+        .blueprint-content strong { color: white; }
+        .blueprint-content ul { list-style-type: disc; margin-left: 1.5rem; padding-left: 1rem; margin-bottom: 1rem; }
+        .blueprint-content li { margin-bottom: 0.5rem; }
+        
+        /* App Loader */
+        #app-loader {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          width: 100vw;
+          background-color: #020024;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 9999;
+          transition: opacity 0.5s ease-out;
+        }
+        .loader-logo {
+          font-size: 1.5rem;
+          font-weight: 900;
+          color: #00B4D8;
+          letter-spacing: -0.5px;
+          margin-bottom: 1rem;
+        }
+        .loader-spinner {
+            width: 2rem;
+            height: 2rem;
+            border: 4px solid rgba(0, 180, 216, 0.2);
+            border-top-color: #00B4D8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+    </style>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-nexus-bg-start">
+    <div id="app-loader">
+      <div class="loader-logo">BWGA NEXUS AI</div>
+      <div class="loader-spinner"></div>
+      <p class="text-gray-400 mt-4">Initializing Intelligence Platform...</p>
+    </div>
+    <div id="root"></div>
+    <script type="text/babel" data-presets="react,typescript" data-type="module" src="index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(error => {
+              console.log('ServiceWorker registration failed: ', error);
+            });
+        });
+      }
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

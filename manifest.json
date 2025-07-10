@@ -1,0 +1,29 @@
+
+{
+  "short_name": "Nexus AI",
+  "name": "BWGA Nexus AI",
+  "description": "A global operating system for regional economic empowerment, providing data-driven insights and AI-powered reports to foster economic growth and stability.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#03045E",
+  "background_color": "#020024"
+}
